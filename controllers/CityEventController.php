@@ -1,21 +1,23 @@
 <?php
 use RepositoryManager as RM;
 
-class CityEventController {
+class CityEventController extends Controller {
 
     function preflight() {
         $this->response( ["success" => true] );
     }
 
-    function response( $status ) {
-        header("Access-Control-Allow-Origin: http://localhost:3000");
-        // header("Access-Control-Allow-Origin: http://localhost:4200");
-        header("Access-Control-Allow-Headers: Content-type");
-        header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS");
-        header("Content-type: application/json");
+    // function response( $status ) {
+    //     // header("Access-Control-Allow-Origin: http://localhost:3000");
+    //     // header("Access-Control-Allow-Origin: http://localhost:4200");
+    //     header("Access-Control-Allow-Origin: http://localhost:8100");
+    //     // header("Access-Control-Allow-Origin: http://192.168.3.68:8100");
+    //     header("Access-Control-Allow-Headers: Content-type");
+    //     header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS");
+    //     header("Content-type: application/json");
 
-        echo json_encode( $status );
-    }
+    //     echo json_encode( $status );
+    // }
 
     function create() {
         $cityEventRepository = RM::getInstance()->getCityEventRepository();
@@ -48,7 +50,7 @@ class CityEventController {
             "success" => $success,
             "cityEvent" => $cityEvent
         ];
-
+        
         $this->response( $status );
     }
 

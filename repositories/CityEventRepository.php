@@ -37,8 +37,8 @@ class CityEventRepository extends Repository {
         ]);
 
         $cityEvent = null;
-        if ($result) {
-            $data = $statement->fetch();
+        $data = $statement->fetch();
+        if ($data) {
             $cityEvent = new CityEvent( $data );
         }
 
